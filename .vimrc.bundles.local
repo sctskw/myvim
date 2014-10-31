@@ -1,0 +1,4 @@
+Bundle 'jistr/vim-nerdtree-tabs'
+Bundle 'jeffkreeftmeijer/vim-numbertoggle'
+Bundle 'digitaltoad/vim-jade'
+Plugin 'jelera/vim-javascript-syntax'

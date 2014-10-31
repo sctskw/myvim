@@ -1,0 +1,50 @@
+"""
+" Custom
+set t_Co=256
+set cc=80
+set noswapfile
+set clipboard=unnamedplus
+nnoremap <F2> :set nonumber!<CR>
+set laststatus=2
+"let g:airline_theme='hybrid'
+vmap <Tab> >gv
+vmap <S-Tab> <gv
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype coffee setlocal ts=2 sts=2 sw=2
+autocmd Filetype jade setlocal ts=2 sts=2 sw=2
+autocmd Filetype less setlocal ts=2 sts=2 sw=2
+autocmd Filetype css setlocal ts=2 sts=2 sw=2
+
+"fix for .js
+au BufNewFile,BufReadPost *.js set filetype=javascript
+" au FileType javascript call JavaScriptFold()
+
+"fix for .jade
+au BufNewFile,BufReadPost *.jade set filetype=jade
+
+"fix for .less
+au BufNewFile,BufReadPost *.less set filetype=less
+
+"fix for .coffee
+au BufNewFile,BufReadPost *.coffee set filetype=coffee
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.svg,*.eot,*.woff,*.ttf,*.otf
+set wildignore+=*/node_modules/*,*/public/vendor/*
+
+
+"disable arrow keys in ESC mode
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
+"disable arrow keys in INS mode
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
+"colors
+set background=light
+colorscheme smyck
+set background=light
