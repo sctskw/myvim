@@ -28,6 +28,7 @@ au BufNewFile,BufReadPost *.less set filetype=less
 "fix for .coffee
 au BufNewFile,BufReadPost *.coffee set filetype=coffee
 
+"disable certain folders in CtrlP
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.svg,*.eot,*.woff,*.ttf,*.otf
 set wildignore+=*/node_modules/*,*/public/vendor/*
 
