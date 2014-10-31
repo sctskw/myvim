@@ -25805,7 +25805,7 @@
 	<key>NSFontPanelAttributes</key>
 	<string>1, 1</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/myvim/iterm-prefs</string>
+	<string>~/myprojects/myvim/iterm-prefs</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -26609,7 +26609,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/sskow200/myvim/iterm-prefs</string>
+	<string>/Users/sskow200/myprojects/myvim/iterm-prefs</string>
 	<key>PromptOnQuit</key>
 	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
