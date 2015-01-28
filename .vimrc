@@ -1,20 +1,21 @@
-" don't bother with vi compatibility
-set nocompatible
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-let g:nerdtree_tabs_open_on_console_startup=0
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" configure Vundle
-filetype on " without this vim emits a zero exit status, later, because of :ft off
-filetype off
-filetype plugin indent on
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
+Plugin 'gmarik/Vundle.vim'
 " install Vundle bundles
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
   source ~/.vimrc.bundles.local
 endif
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 
 " enable syntax highlighting
 syntax enable
