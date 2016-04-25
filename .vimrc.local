@@ -1,41 +1,24 @@
-"""
-" Custom
+syntax on
+filetype plugin indent on
 
-let mapleader=","
+let mapleader = ","
+
 set ffs=unix
 set t_Co=256
-set cc=80
+set cc=100
 set noswapfile
 set clipboard=unnamedplus
 set ts=2 sts=2 sw=2
-nnoremap <F2> :set nonumber!<CR>
 set laststatus=2
-vmap <Tab> >gv
-vmap <S-Tab> <gv
+set backupcopy=yes
+set tags=tags;/
 
-autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-autocmd Filetype coffee setlocal ts=2 sts=2 sw=2
-autocmd Filetype jade setlocal ts=2 sts=2 sw=2
-autocmd Filetype less setlocal ts=2 sts=2 sw=2
-autocmd Filetype css setlocal ts=2 sts=2 sw=2
+"ctags alias
+nmap <C-]> :TagbarToggle<CR>
+nmap <leader>] :TagbarToggle<CR>
 
-"fix for .js
-au BufNewFile,BufReadPost *.js set filetype=javascript
-" au FileType javascript call JavaScriptFold()
-
-"fix for .jade
-au BufNewFile,BufReadPost *.jade set filetype=jade
-
-"fix for .less
-au BufNewFile,BufReadPost *.less set filetype=less
-
-"fix for .coffee
-au BufNewFile,BufReadPost *.coffee set filetype=coffee
-
-"disable certain folders in CtrlP
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.svg,*.eot,*.woff,*.ttf,*.otf
-set wildignore+=*/node_modules/*,*/public/vendor/*
-
+"comment toggler
+map \\ gcc
 
 "disable arrow keys in ESC mode
 map <up> <nop>
@@ -49,7 +32,65 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
+vmap <Tab> >gv
+vmap <S-Tab> <gv
+
+:au FocusLost * :set number
+:au FocusGained * :set relativenumber
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype coffee setlocal ts=2 sts=2 sw=2
+autocmd Filetype jade setlocal ts=2 sts=2 sw=2
+autocmd Filetype less setlocal ts=2 sts=2 sw=2
+autocmd Filetype css setlocal ts=2 sts=2 sw=2
+
+"fix for .js
+au BufNewFile,BufReadPost *.js set filetype=javascript syntax=javascript
+" au FileType javascript call JavaScriptFold()
+
+"fix for .jade
+au BufNewFile,BufReadPost *.jade set filetype=jade
+
+"fix for .less
+au BufNewFile,BufReadPost *.less set filetype=less
+
+"fix for .coffee
+au BufNewFile,BufReadPost *.coffee set filetype=coffee
+
+"fix for .ejc
+au BufNewFile,BufReadPost *.ejs set filetype=html
+
+"disable certain folders in CtrlP
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.svg,*.eot,*.woff,*.ttf,*.otf
+set wildignore+=*/node_modules/*,*/public/vendor/*
+
+"YCM options
+let g:ycm_add_preview_to_completeopt=0
+let g:ycm_confirm_extra_conf=0
+set completeopt-=preview
+
+"syntastic linter
+let g:syntastic_javascript_checkers = ['eslint']
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
 "colors
 set background=light
 colorscheme smyck
 set background=light
+set clipboard=unnamed
+
+highlight ColorColumn guibg=#2d2d2d ctermbg=246
+
+
+"commands
+com! JSON %!python -m json.tool
